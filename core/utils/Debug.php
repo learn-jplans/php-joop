@@ -6,11 +6,14 @@ namespace Core\Utils;
 class Debug
 {
   
-  public static function showMessage($message) {
+  public static function showMessage($message)
+  {
     print $message;
+    self::breakLine();
   }
 
-  public static function showErrorMessage($message) {
+  public static function showErrorMessage($message)
+  {
     self::showMessage($message);
     die;
   }
@@ -20,5 +23,10 @@ class Debug
     self::showMessage('<pre>');
     var_dump($data);
     self::showMessage('</pre>');
+  }
+
+  public static function breakLine()
+  {
+    print '</br>';
   }
 }

@@ -17,9 +17,9 @@ class Database extends DataProvider
   private $password;
   private $name;
   private $provider;
-  private $dbInstance;
+  private static $instance;
 
-  function __construct()
+  private function __construct()
   {
     $this->host = Config::get('database.host');
     $this->username = Config::get('database.username');
@@ -30,21 +30,28 @@ class Database extends DataProvider
     $this->connect();
   }
 
+  public static function getInstace() 
+  {
+    if(self::$instance == null) {
+      self::$instance = new Database();
+    }
+
+    return self::$instance;
+  }
+
   private function connect()
   {
     switch ($this->provider) {
       case 'mysql':
         $mysql = new MySql($this->host, $this->username, $this->password, $this->name);
-        $this->setProvider($mysql);
         break;
       default:
         Debug::showErrorMessage('Unknown database provider');
         break;
      }
+
+     $this->setProvider($mysql);
   }
-
-  
-
 
 
 }

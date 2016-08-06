@@ -1,14 +1,14 @@
 <?php 
 namespace App\Models;
 
-use Core\Components\Model;
+use Core\Components\DatabaseModel;
 
-class User extends Model
+class User extends DatabaseModel
 {
 
     protected $id;
     protected $name;
-    protected $age;
-    protected $address;
+    protected $username;
+    protected $password;
 
 }

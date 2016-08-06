@@ -3,10 +3,12 @@ namespace App\Controllers;
 
 use Core\Http\Controller;
 use App\Models\User;
+use App\Models\Product;
 use Core\Components\Session;
 use Core\Utils\Url;
 use Core\Components\Database;
 use Core\Utils\Debug;
+
 
 class About extends Controller
 {
@@ -17,16 +19,32 @@ class About extends Controller
 
     public function postData()
     {
-        $db = new Database();
-        $db->execute("insert into users values(3, 'jplans', '123')");
-        Debug::showMessage('Data successfully inserted');
+        // $db = new Database();
+        // $db->execute("insert into users values(3, 'jplans', '123')");
+        // Debug::showMessage('Data successfully inserted');
     }
 
     public function getData()
     {
-        $db = new Database();
-        $data = $db->fetchData('select * from users');
-        Debug::dump($data);
+        // $db = new Database();
+        // $data = $db->fetchData('select * from users');
+        // Debug::dump($data);
+    }
+
+    public function orm()
+    {
+        $user = new User();
+        $user->name = 'Juan';
+        $user->username = 'juan';
+        $user->password = '1234';
+        $user->save();
+
+        $erica = new User();
+        $erica->name = 'Erica';
+        $erica->username = 'erica';
+        $erica->password = '32132';
+        $erica->save();
+
     }
 
     public function index()

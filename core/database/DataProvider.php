@@ -17,6 +17,7 @@ abstract class DataProvider
   {
     $this->provider->execute($query);
   }
+  
   public function fetchData($query)
   {
     return $this->provider->fetchData($query);
