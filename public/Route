@@ -1,0 +1,12 @@
+Route::get('/services/tech/', '')
+Route::get('/services/tech/{name}/{id}', '')
+
+/services/tech/1234/
+
+
+class Services
+{
+    function getTech($name, $id){
+    
+    }
+}

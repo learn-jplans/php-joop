@@ -1,0 +1,15 @@
+//interface
+FlyBehavior
+
+//classes that implements FlyBehavior interface
+//with method fly that has different implementation
+FlyWithWings duckFly = new FlyWithWings();
+FlyNoWay duckNofly = new FlyNoWay();
+FlyHigh duckFlyhigh = new FlyHigh();
+FlyRocketPowered duckFlyhigh = new FlyRocketPowered();
+
+FlyBehavior duckFly = new FlyWithWings();
+FlyBehavior duckFly = new FlyNoWay();
+FlyBehavior duckFly = new FlyHigh();
+FlyBehavior duckFly = new FlyRocketPowered();
+
