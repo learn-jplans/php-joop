@@ -13,30 +13,44 @@ class DatabaseModel extends Model
     $obj = $this->extractObject();
     SqlCommands::insert($obj);
   }
+
   public function update()
   {
     # code...
   }
+
+  public static function deleteAll()
+  {
+    $table = self::getTableName();
+    SqlCommands::delete(['name' => $table]);
+  }
+
   public function where($field, $value)
   {
     return $this;
   }
+
   public function find($id)
   {
     # code...
   }
-  public function all()
+
+  public static function all()
   {
-    # code...
+    $table = self::getTableName();
+    return SqlCommands::select($table);
   }
+
   public function get()
   {
     # code...
   }
+
   public function orderBy($field, $value)
   {
     # code...
   }
+
   public function limit($value)
   {
     # code...

@@ -7,7 +7,7 @@ use Core\Components\Database;
 */
 class SqlCommands
 {
-  
+
   public static function insert($data = [])
   {
     $table = $data['name'];
@@ -24,11 +24,35 @@ class SqlCommands
     $values = implode(',', $values);
 
     $sql = "INSERT INTO {$table} ({$fields}) VALUES ({$values})";
-    
-    Debug::showMessage($sql);
 
     $db = Database::getInstace();
     $db->execute($sql);
     
+  }
+
+  public static function select($table)
+  {
+    $sql = "SELECT * FROM {$table}";
+    $db = Database::getInstace();
+    return $db->fetchData($sql);
+  }
+
+  public static function delete($data = [])
+  {
+    $table = $data['name'];
+    $sql = "DELETE FROM {$table}";
+
+    $db = Database::getInstace();
+    $db->execute($sql);
+  }
+
+  public static function where($data = [], $cond)
+  {
+
+  }
+
+  public static function update($data = [])
+  {
+    # code...
   }
 }

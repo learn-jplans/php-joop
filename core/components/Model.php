@@ -20,9 +20,14 @@ abstract class Model
         return $this;
     }
 
+    public static function getTableName()
+    {
+        return end(explode('\\', get_called_class()));
+    }
+
     public function extractObject()
     {
-        $tableName = end(explode('\\', get_class($this)));
+        $tableName = self::getTableName();
         $fields = get_object_vars($this);
 
         $object = [
