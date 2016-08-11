@@ -24,7 +24,7 @@ class Orm extends Controller
             'abby' => 'Abby'
         ];
 
-        $this->deleteAllPost();
+        // $this->deleteAllPost();
         foreach ($users as $key => $value) {
             $user = new User();
             $user->name = $value;

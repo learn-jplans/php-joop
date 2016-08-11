@@ -23,4 +23,9 @@ class StarBuzz
         $darkRoast = new Whip($darkRoast);
         PrintText::sameLine($darkRoast->getSize() . ': ' . $darkRoast->getDescription() . ' $' . $darkRoast->cost());
     }
+
+    public function FunctionName($value='')
+    {
+        # code...
+    }
 }
